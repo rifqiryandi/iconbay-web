@@ -24,12 +24,12 @@ Route::get('/bold', [ImageController::class, 'to_frontend2'])->name('solid');
 Route::get('/bulk', [ImageController::class, 'to_frontend3'])->name('solid-color');
 Route::get('/twotones', [ImageController::class, 'to_frontend4'])->name('multi');
 
-Route::middleware('auth')->group(function(){
-    Route::get('/admin', function() {
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', function () {
         return view('admin');
     });
 
-    Route::get('/kategori', function() {
+    Route::get('/kategori', function () {
         return view('kategori');
     });
 
@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/gambar', [ImageController::class, 'to_image']);
 });
 
-Route::get('/auth', function(){
+Route::get('/auth', function () {
     return view('login');
 });
 Route::post('/signin', [AuthController::class, 'login'])->name('login');

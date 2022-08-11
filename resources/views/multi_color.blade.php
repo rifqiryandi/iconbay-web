@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title', 'Two Tones')</title>
+    <title>@yield('title', 'ICONBAY - Two Tones')</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,57 +15,67 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}">
 
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}" />
     <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
-    {{-- <link rel="stylesheet" type="text/css" media="all" href="{{ asset('assets/jquery.colorpicker.bygiro.css') }}">
-    --}}
+    {{-- <link rel="stylesheet" type="text/css" media="all" href="{{ asset('assets/jquery.colorpicker.bygiro.css') }}"> --}}
     <style>
         .main-sidebar {
-            background-color: #0D1629
+            background-color: #0D1629;
         }
 
         .content-wrapper {
-            background-color: #0D1629
+            background-color: #0D1629;
         }
 
         * {
-        box-sizing: border-box;
+            box-sizing: border-box;
         }
 
         body {
-        font-family: Arial, Helvetica, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0D1629;
+
         }
 
         /* Float four columns side by side */
         .column {
-        float: left;
-        width: 12.5%;
-        padding: 7px 7px;
+            float: left;
+            /* width: 12.5%; */
+            padding: 10px 10px;
         }
 
         /* Remove extra left and right margins, due to padding */
-        .row {margin: 0 -5px;}
+        .row {
+            margin: 0px -25px 0px 20px;
+        }
 
         /* Clear floats after the columns */
         .row:after {
-        content: "";
-        display: table;
-        clear: both;
+            content: "";
+            display: table;
+            clear: both;
         }
 
         .column-filter {
             float: left;
-            width: 30%;
+            width: 40%;
+            display: inline;
+            align-content: flex-start;
             /* padding: 10px; */
             /* height: 300px; Should be removed. Only for demonstration */
         }
 
-            /* Clear floats after the columns */
+        .row-filter{
+            margin: 0px -5px 0px 25px;
+        }
+
+        /* Clear floats after the columns */
         .row-filter:after {
             content: "";
             display: table;
@@ -75,8 +85,10 @@
         /* Responsive columns */
         @media screen and (max-width: 600px) {
             .column {
-                width: 100%;
+                width: 80%;
+                height: 160px;
                 display: block;
+                padding: 0%;
                 margin-bottom: 20px;
             }
 
@@ -95,7 +107,13 @@
             }
         }
 
-        .form-groupp i{
+        .header-title {
+            width: 65%;
+            max-width: 110px;
+            min-width: 90px;
+        }
+
+        .form-groupp i {
             position: absolute;
             color: #FFFFFF;
             top: 9.8rem;
@@ -109,53 +127,54 @@
 
         /* Style the counter cards */
         .card {
+            aspect-ratio: 1 / 1;
             position: relative;
             display: -ms-flexbox;
             display: flex;
             -ms-flex-direction: column;
             flex-direction: column;
-            min-width: 0;
+            /* min-width: 0; */
             word-wrap: break-word;
             justify-content: center;
             align-items: center;
             text-align: center;
-            width: auto;
-            height: 130px;
-            padding-bottom: 10px;
+            width: 100%;
+            min-width: 90px;
+            height: 67.5%;
+            min-height: 90px;
+            padding: 5px;
             background-color: #252D3E;
-            background-clip: border-box;
-            border: 0 solid rgba(0, 0, 0, .125);
-            border-radius: .25rem
+            /* background-clip: border-box; */
+            /* border: 0 solid rgba(0, 0, 0, .125); */
+            border-radius: .25rem;
+
+        }
+
+        .card::after {
+            content: '';
+            aspect-ratio: 1 / 1;
+
         }
 
         .card:hover {
             position: static;
-            height: 120px;
+            height: 67.5%;
             left: 0px;
             background: #30A2FF;
             box-shadow: 0px 8px 24px 12px rgba(48, 162, 255, 0.3);
-            border-radius: 8px;
+            /* border-radius: 8px; */
+            border-top-left-radius: 0%;
+            border-top-right-radius: 0%;
+            border-bottom-left-radius: .25rem;
+            border-bottom-right-radius: .25rem;
         }
 
-        button {
-            /* position: static; */
-            width: 90px;
-            display: inline-block;
-            /* block-size: fit-content; */
-            padding: 5px;
-            left: 5px;
-            text-align: center;
-            opacity: 0;
-            background-color: #30A2FF;
-            border-radius: 8px;
-            transition: opacity .35s ease;
-        }
+        /* .icon {
+            width: 100%;
+        } */
 
-        .card:hover button {
-            opacity: 1;
-        }
 
-        .inputt-search {
+        */ .inputt-search {
             /* display: block; */
             background: #252D3E;
             border-radius: 8px;
@@ -172,15 +191,95 @@
             font-family: 'Rubik';
             font-style: normal;
             font-weight: 400;
+            font-size: 16px;
+            line-height: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .input-new {
+            background: #252D3E;
+            border-radius: 8px;
+            color: #FFFFFF;
+            border: 0px solid #30A2FF;
+            height: 48px;
+            top: 0px;
+            font-family: 'Rubik';
+            font-style: normal;
+            font-weight: 500;
             font-size: 14px;
             line-height: 16px;
-            grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        }
+
+        .input-new:focus {
+            /* outline: 1px 1px 1px 1px solid #30A2FF; */
+            background: #252D3E;
+            border-radius: 8px;
+            color: #FFFFFF;
+        }
+
+        .icon-new {
+            border: 0px solid #30A2FF;
+            background: #252D3E;
+            border-radius: 8px;
+            color: #FFFFFF;
         }
 
         .inputt-search:focus {
-            outline : 1px solid #30A2FF;
+            outline: 1px solid #30A2FF;
         }
 
+        .btn-group {
+            background: #252D3E;
+            border-radius: 8px;
+        }
+
+        .btn-group input {
+            background: #252D3E;
+            border-radius: 8px;
+            width: 40px;
+            height: 24px;
+            text-align: center;
+            padding: 2px;
+        }
+
+        .dropdown-menu{
+            margin-top: 4%;
+            margin-left: -7%;
+            width: 238px;
+            height: auto;
+            background: #252D3E;
+            border-radius: 8px;
+        }
+
+        .dropdown-item{
+            color: #FFF;
+            height: 44px;
+            padding: 4%;
+        }
+
+        .dropdown-item:hover{
+            background: rgba(48, 162, 255, 0.2);
+            color: #FFF;
+        }
+
+        .dropdown-toggle{
+            width: 100%;
+            text-align: left;
+        }
+        .dropdown-toggle::after{
+            position: relative;
+            left:70px;
+            display: none;
+        }
+
+
+        /* .btn-group1 {
+            width: 120%;
+            max-width: 208px;
+
+        } */
     </style>
     @stack('css')
 </head>
@@ -208,7 +307,8 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link" style="font-family: Rubik;font-size: 14px; z-index: 1;">LICENSE</a>
+                    <a href="#" class="nav-link"
+                        style="font-family: Rubik;font-size: 14px; z-index: 1;">LICENSE</a>
                 </li>
 
                 <li class="nav-item d-none d-sm-inline-block">
@@ -220,11 +320,15 @@
                 </li>
 
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link" style="font-family: Rubik;font-size: 14px; z-index: 1;">GIVE FEEDBACK</a>
+                    <a href="#" class="nav-link" style="font-family: Rubik;font-size: 14px; z-index: 1;">GIVE
+                        FEEDBACK</a>
                 </li>
 
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link btn-iconbay" id="btnDownload">
+                <li class="nav-item d-none d-sm-inline-block" style="width: 158px;min-width: 155px;">
+                    <a href="#" class="nav-link btn-iconbay" id="btnDownload" style="font-family: 'Rubik';
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 14px;text-transform: uppercase;letter-spacing: 0.1em;padding-left: 12%;">
                         {{-- <button id="btnDownload" class="btn-text"><p>DOWNLOAD ALL</p></button> --}}
                         DOWNLOAD ALL
                     </a>
@@ -241,8 +345,10 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ asset('') }}assets/index3.html" class="brand-link">
-                <img src="{{ asset('image/icon_bay.png') }}" alt="AdminLTE Logo" class="brand-image" style="opacity: .8">
-                <span class="brand-text font-weight-light" style="font-family: Rubik;font-size: 20px;letter-spacing: 0.1em;line-height: 24px;color: #FFFFFF;margin: 0px 15px;">ICONBAY</span>
+                <img src="{{ asset('image/icon_bay.png') }}" alt="AdminLTE Logo" class="brand-image"
+                    style="opacity: .8">
+                <span class="brand-text font-weight-light"
+                    style="font-family: Rubik;font-size: 20px;letter-spacing: 0.1em;line-height: 24px;color: #FFFFFF;margin: 0px 15px;">ICONBAY</span>
             </a>
 
             <!-- Sidebar -->
@@ -256,9 +362,11 @@
                         <li class="nav-header" style="font-family: Rubik;font-size: 12px">TYPE</li>
 
                         <li class="nav-item">
-                            <a href="{{ url('light') }}" class="nav-link line {{ Request::is('light') ? 'active' : '' }}">
+                            <a href="{{ url('light') }}"
+                                class="nav-link line {{ Request::is('light') ? 'active' : '' }}">
                                 <i class="float-right">
-                                    <img src="{{ asset('image/line.svg') }}" alt="" id="ll_color" class="sidebar-icon">
+                                    <img src="{{ asset('image/Light.svg') }}" alt="" id="ll_color"
+                                        class="sidebar-icon">
                                 </i>
                                 <p style="font-family: Rubik;font-size: 14px">
                                     LIGHT
@@ -270,7 +378,7 @@
                             <a href="{{ url('broken') }}"
                                 class="nav-link line_color {{ Request::is('broken') ? 'active' : '' }}">
                                 <i class="float-right">
-                                    <img src="{{ asset('image/line color.svg') }}" alt="" id="ll_color">
+                                    <img src="{{ asset('image/Broken.svg') }}" alt="" id="ll_color">
                                 </i>
                                 <p style="font-family: Rubik;font-size: 14px">
                                     BROKEN
@@ -282,7 +390,7 @@
                             <a href="{{ url('bold') }}" class="nav-link {{ Request::is('bold') ? 'active' : '' }}"
                                 id="solid">
                                 <i class="float-right">
-                                    <img src="{{ asset('image/solid.svg') }}" alt="" id="ll_color"
+                                    <img src="{{ asset('image/Bold.svg') }}" alt="" id="ll_color"
                                         class="img-rounded-sm">
                                 </i>
                                 <p style="font-family: Rubik;font-size: 14px">
@@ -295,7 +403,7 @@
                             <a href="{{ url('bulk') }}"
                                 class="nav-link {{ Request::is('bulk') ? 'active' : '' }}" id="solid_color">
                                 <i class="float-right">
-                                    <img src="{{ asset('image/solid color.svg') }}" alt="" id="ll_color">
+                                    <img src="{{ asset('image/Bulk.svg') }}" alt="" id="ll_color">
                                 </i>
                                 <p style="font-family: Rubik;font-size: 14px">
                                     BULK
@@ -304,10 +412,10 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ url('twotones') }}" class="nav-link {{ Request::is('twotones') ? 'active' : '' }}"
-                                id="multi_color">
+                            <a href="{{ url('twotones') }}"
+                                class="nav-link {{ Request::is('twotones') ? 'active' : '' }}" id="multi_color">
                                 <i class="float-right">
-                                    <img src="{{ asset('image/multi color.svg') }}" alt="" id="ll_color">
+                                    <img src="{{ asset('image/Two Tones.svg') }}" alt="" id="ll_color">
                                 </i>
                                 <p style="font-family: Rubik;font-size: 14px">
                                     TWO TONES
@@ -315,83 +423,78 @@
                             </a>
                         </li>
 
-                        <div id="tab_size">
-                            <li class="nav-header" style="font-family: Rubik;font-size: 12px">SIZE (PX)</li>
-                            <div class="row">
-                                <div class="col-1"></div>
-                                <div class="col-10">
-                                    <div class="btn-group">
-                                        <input label="16" type="radio" id="option16" name="size" value="16">
-                                        <input label="24" type="radio" id="option24" name="size" value="24">
-                                        <input label="32" type="radio" id="option32" name="size" value="32">
-                                        <input label="48" type="radio" id="option48" name="size" value="48">
-                                        <input label="64" type="radio" id="option64" name="size" value="64" checked>
-                                        <input label="96" type="radio" id="option96" name="size" value="96">
-                                    </div>
-                                </div>
-                                <div class="col-1"></div>
+                        <li class="nav-header"
+                            style="font-family: Rubik;font-size: 12px; padding-left: 2%;padding-top: 15%;">SIZE (PX)
+                        </li>
+                        <div class="btn-toolbar" style="margin-left: 15px; width: 95%; max-width: 190px;"
+                            role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                <input label="16" type="radio" id="option16" name="size" value="16">
+                                <input label="24" type="radio" id="option24" name="size" value="24">
+                                <input label="32" type="radio" id="option32" name="size" value="32">
+                                <input label="48" type="radio" id="option48" name="size" value="48">
+                                <input label="64" type="radio" id="option64" name="size" value="64"
+                                    checked>
                             </div>
                         </div>
-                        <div id="tab_stroke">
-                            <li class="nav-header" style="font-family: Rubik;font-size: 12px">STROKE (PX)</li>
-                            <div class="col-12">
-                                <div class="row">
-                                    {{-- <div class="col-1"></div> --}}
-                                    <div class="col-10">
-                                        <div class="btn-group1">
-                                            <input label="0.5" type="radio" id="option05" name="stroke" value="0.5"
-                                                >
-                                            <input label="1" type="radio" id="option1" name="stroke" value="1">
-                                            <input label="1.5" type="radio" id="option15" name="stroke" value="1.5">
-                                            <input label="2" type="radio" id="option2" name="stroke" value="2" checked>
-                                            <input label="2.5" type="radio" id="option25" name="stroke" value="2.5">
-                                            <input label="3" type="radio" id="option3" name="stroke" value="3">
-                                        </div>
-                                    </div>
-                                    <div class="col-1"></div>
-                                </div>
 
+                        <li class="nav-header"
+                            style="font-family: Rubik;font-size: 12px; padding-left: 2%;padding-top: 2%;">
+                            STROKE
+                            (PX)</li>
+                        <div class="btn-toolbar" style="margin-left: 15px;width: 95%;max-width: 190px;"
+                            role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mr-2" role="group"aria-label="First group">
+                                <input label="0.5" type="radio" id="option05" name="stroke" value="0.5">
+                                <input label="1" type="radio" id="option1" name="stroke" value="1">
+                                <input label="1.5" type="radio" id="option15" name="stroke" value="1.5">
+                                <input label="2" type="radio" id="option2" name="stroke" value="2"
+                                    checked>
+                                <input label="2.5" type="radio" id="option25" name="stroke" value="2.5">
                             </div>
                         </div>
-                        <br>
                         <div>
-                            <li class="nav-header" style="font-family: Rubik;font-size: 12px">COLORS</li>
-                            <div id="one">
-                                <div class="input-group my-colorpicker2">
+                            <li class="nav-header"
+                                style="font-family: Rubik;font-size: 12px;padding-left: 2%;padding-top: 2%;">COLORS
+                            </li>
+                            <div id="one" style="max-width: 190px;">
+                                <div class="input-group " style="max-width: 190px;">
                                     <span class="input-color">
-                                        <input type="text" class="input-pv-color" style="color: #FFF;font-family: 'Rubik';
+                                        <input type="text" class="input-pv-color clr2"
+                                            style="color: #FFF;font-family: 'Rubik';
                                         font-style: normal;
-                                        font-size: 0px;" id="utama">
+                                        font-size: 0px;"
+                                            id="utama">
                                         <label class="input-label" id="l_utama">#FFFFFF</label>
                                     </span>
                                 </div>
+                                <div class="my-colorpicker2" style="max-width: 174px;"></div>
                             </div>
 
-                            <div id="one">
-                                <div class="input-group my-colorpicker2">
+                            <div id="one" style="max-width: 190px;">
+                                <div class="input-group " style="max-width: 190px;">
                                     <span class="input-color">
-                                        <input type="text" class="input-pv-color" style="color: #FFF;font-family: 'Rubik';
+                                        <input type="text" class="input-pv-color clr1"
+                                            style="color: #FFF;font-family: 'Rubik';
                                         font-style: normal;
-                                        font-size: 0px;" id="kedua">
+                                        font-size: 0px;"
+                                            id="kedua">
                                         <label class="input-label" id="l_kedua">#FFFFFF</label>
                                     </span>
                                 </div>
+                                <div class="my-colorpicker1" style="max-width: 174px;"></div>
                             </div>
 
-                            <div id="one">
-                                <div class="input-group my-colorpicker2">
-                                    <span class="input-color">
-                                        <input type="text" class="input-pv-color" style="color: #FFF;font-family: 'Rubik';
-                                        font-style: normal;
-                                        font-size: 0px;" id="ketiga">
-                                        <label class="input-label" id="l_ketiga">#FFFFFF</label>
-                                    </span>
-                                </div>
-                            </div>
 
                         </div>
                     </ul>
-                    <p class="footer-text">SUANGARX V1 © 2021 SUB1</p>
+                    <p class="text-center text-light"
+                        style="padding-top: 25%;font-family: 'Rubik';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 20px;">
+                        SUANGARX V1 © 2021 SUB1</p>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
@@ -408,45 +511,120 @@
 
             <!-- Main content -->
             <section class="content">
-                <p class="header-text">Everyone Icons</p>
+                <p class="header-text" style="margin: 0px -5px 10px 25px;">Everyone Icons</p>
                 <img src="{{ asset('image/paint.png') }}" alt="" class="back-icon">
                 <div class="row-filter">
                     <div class="column-filter">
-                        <div class="form-groupp">
-                            <i class="fas fa-search iconn"></i>
-                            <input type="text" name="filter" id="filter" class="inputt-search"
-                                placeholder="Search 2271 icons in Two Tones">
+                        <div class="input-group mb-3 focus-new">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text icon-new" id="basic-addon1"><i
+                                        class="fas fa-search "></i>
+                                </span>
+                            </div>
+                            <input type="text" onclick="focus(this)" name="filter" id="filter" data-val="all"
+                                class="form-control input-new" placeholder="Search {{ $countarr[0] }} icons in Two Tones"
+                                aria-label="Search" aria-describedby="basic-addon1">
                         </div>
                     </div>
 
+                    {{-- <div class="form-groupp">
+                        <i class="fas fa-search iconn"></i>
+                        <input type="text" name="filter" id="filter" class="inputt-search"
+                            placeholder="Search 2271 icons in Two Tones">
+                    </div> --}}
+
                     <div class="column-filter">
-                        <div class="form-group">
+                        <div class="dropdown form-controll" style="margin-left: -10%;width: 238px;">
+                            <button class="btn btn-secondary dropdown-toggle change"
+                                style="background: none; border-color: #252D3E;" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                All Categories </button><img src="{{ asset('image/arrowdown.png') }}"
+                                    style="position: relative; right: 10px;" id="img-change">
+
+                            @php
+                                $jmlh = count($kat);
+                            @endphp
+                            <div class="dropdown-menu" data-count="{{ $jmlh }}"
+                                aria-labelledby="dropdownMenuButton">
+                                @php
+                                    $i = 0;
+                                @endphp
+                                <a class="dropdown-item d-flex" id="filterr{{ $i }}" href="#"
+                                    data-val="all">
+                                    <p style="width: 100%;padding-top: 1%" id="flnama{{ $i }}">All Categories</p><span class="badge"
+                                        id="badge{{ $i }}"
+                                        style="background: rgba(48, 162, 255, 0.2);
+                                    border-radius: 50px;color: #30A2FF;width: 56px;
+                                    height: 28px;padding: 8px 12px;">{{ $countarr[0] }}</span>
+                                </a>
+                                @foreach ($kat as $k)
+                                    @php
+                                        $i++;
+                                    @endphp
+                                    <a class="dropdown-item d-flex" id="filterr{{ $i }}" href="#"
+                                        data-val="{{ $k->id }}">
+                                        <p style="width: 100%;padding-top: 1%" id="flnama{{ $i }}">{{ $k->nama }}</p><span
+                                            class="badge" id="badge{{ $i }}"
+                                            style="background: rgba(48, 162, 255, 0.2);
+                                    border-radius: 50px;color: #30A2FF;width: 56px;
+                                    height: 28px;padding: 8px 12px;">{{ $countarr[$i] }}</span>
+                                    </a>
+                                @endforeach
+                            </div>
+                        </div>
+                        {{-- <div class="form-group" >
                             <select name="" id="filterr" class="form-controll">
                                 <option selected value="all">All Categories</option>
                                 @foreach ($kat as $k)
                                     <option value="{{ $k->id }}">{{ $k->nama }}</option>
                                 @endforeach
                             </select>
-                            </div>
+                        </div> --}}
                     </div>
                 </div>
 
                 <hr class="garis">
-
                 <div class="row">
+                    @php
+                        $i = 0;
+                    @endphp
                     @foreach ($data as $d)
-                    <div class="column {{ $d->kategori_id }}">
-                      <div class="card">
-                        <button class="btnCopy">Tap to Copy</button>
-                        <x-svg name="{{ explode('.svg', $d->filepath)[0] }}" class="card__image" />
-                      </div>
-                      <p class="header-title" >{{ $d->nama }}</p>
-                    </div>
+                        <div class="column {{ $d->kategori_id }}">
+                            <div class="btn-group-vertical here">
+                                <a type="submit" class="btnCopy"
+                                    style="width: 100%;
+                                    background-color: #30A2FF;
+                                    height: 20px;
+                                    font-family: 'Rubik';
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    font-size: 12px;
+                                    border-top-left-radius: .25rem;
+                                    border-top-right-radius: .25rem;
+                                    opacity:0;
+                                    color: #FFF;
+                                    outline: none;
+                                    outline-width: 0px;
+                                    border-color: #30A2FF;"
+                                    id="btn{{ $i }}" data-idbtn="{{ $i }}">
+                                    <p style="padding: 5px" class="text-change{{$i}}">TAP TO COPY</p>
+                                </a>
+                                <div class="card" id="card{{ $i }}">
+                                    <x-svg name="{{ explode('.svg', $d->filepath)[0] }}" class="card__image"
+                                        id="a1" />
+                                </div>
+                                <p class="header-title">{{ $d->nama }}</p>
+                            </div>
+                        </div>
+                        @php
+                            $i++;
+                        @endphp
                     @endforeach
                 </div>
 
             </section>
-    </div>
+        </div>
 
     </div>
 
@@ -467,12 +645,164 @@
     <script type="text/javascript" src="{{ asset('assets/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}">
     </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.0.0/jszip.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js">
+    </script>
     <<script>
-        $(function () {
+        $(function() {
             var clipboard = new ClipboardJS('.btnCopy');
+
             $('.my-colorpicker2').colorpicker({
-                format: 'hex',
+                    format: 'hex',
+                    inline: true,
+                    container: true,
+                    template: '<div class="colorpicker cp2">' +
+                        '<div class="colorpicker-saturation"><i class="colorpicker-guide"></i></div>' +
+                        '<div class="colorpicker-hue"><i class="colorpicker-guide"></i></div>' +
+                        '<div class="colorpicker-alpha">' +
+                        '   <div class="colorpicker-alpha-color"></div>' +
+                        '   <i class="colorpicker-guide"></i>' +
+                        '</div>' +
+                        '<div class="colorpicker-bar">' +
+                        '   <div class="input-group">' +
+                        '       <input class="form-control input-block color-io" />' +
+                        '   </div>' +
+                        '</div>' +
+                        '</div>'
+                })
+                .on('colorpickerCreate', function(e) {
+                    // initialize the input on colorpicker creation
+                    var io = e.colorpicker.element.find('.color-io');
+                    $('.color-io').focus();
+
+                    io.val(e.color.string());
+
+                    io.on('change keyup', function() {
+                        color = io.val()
+                        $('#l_utama').text(color).trigger("fnLabelChanged", color);
+                        $('#utama').css('background-color', color)
+                        $('#utama').css("color", color)
+                        e.colorpicker.setValue(io.val());
+                    });
+                })
+                .on('colorpickerChange', function(e) {
+                    var io = e.colorpicker.element.find('.color-io');
+
+                    if (e.value === io.val() || !e.color || !e.color.isValid()) {
+                        // do not replace the input value if the color is invalid or equals
+                        return;
+                    }
+                    color = io.val()
+                    $('#l_utama').text(color).trigger("fnLabelChanged", color);
+                    $('#utama').css('background-color', color)
+                    $('#utama').css("color", color)
+
+                    io.val(e.color.string());
+                });
+
+
+
+            $('.my-colorpicker1').colorpicker({
+                    format: 'hex',
+                    inline: true,
+                    container: true,
+                    template: '<div class="colorpicker cp1">' +
+                        '<div class="colorpicker-saturation"><i class="colorpicker-guide"></i></div>' +
+                        '<div class="colorpicker-hue"><i class="colorpicker-guide"></i></div>' +
+                        '<div class="colorpicker-alpha">' +
+                        '   <div class="colorpicker-alpha-color"></div>' +
+                        '   <i class="colorpicker-guide"></i>' +
+                        '</div>' +
+                        '<div class="colorpicker-bar">' +
+                        '   <div class="input-group">' +
+                        '       <input class="form-control input-block color-io" />' +
+                        '   </div>' +
+                        '</div>' +
+                        '</div>'
+                })
+                .on('colorpickerCreate', function(e) {
+                    // initialize the input on colorpicker creation
+                    var io = e.colorpicker.element.find('.color-io');
+                    $('.color-io').focus();
+
+                    io.val(e.color.string());
+
+                    io.on('change keyup', function() {
+                        color = io.val()
+                        $('#l_kedua').text(color).trigger("fnLabelChanged2", color);
+                        $('#kedua').css('background-color', color)
+                        $('#kedua').css("color", color)
+                        e.colorpicker.setValue(io.val());
+                    });
+                })
+                .on('colorpickerChange', function(e) {
+                    var io = e.colorpicker.element.find('.color-io');
+
+                    if (e.value === io.val() || !e.color || !e.color.isValid()) {
+                        // do not replace the input value if the color is invalid or equals
+                        return;
+                    }
+                    color = io.val()
+                    $('#l_kedua').text(color).trigger("fnLabelChanged2", color);
+                    $('#kedua').css('background-color', color)
+                    $('#kedua').css("color", color)
+                    io.val(e.color.string());
+                });
+            $('.cp2').hide();
+            $('.cp1').hide();
+
+
+            $('.clr2').on('click', function() {
+                if ($('.cp2').is(":visible")) {
+                    $('.cp2').hide();
+
+                } else {
+                    $('.cp2').show();
+
+                }
+            })
+
+            $('.clr1').on('click', function() {
+                if ($('.cp1').is(":visible")) {
+                    $('.cp1').hide();
+
+                } else {
+                    $('.cp1').show();
+
+                }
+            })
+
+            $('#filter').on('focus', function() {
+                $('.focus-new').css({
+                    'border-color': '#30A2FF #30A2FF #30A2FF #30A2FF',
+                    'border-style': 'solid solid solid solid',
+                    'border-width': '1px 1px 1px 1px',
+                    'border-radius': '8px'
+                });
+                let id = $('#filter').attr('data-val')
+                if (id == 'all') {
+                    $('.column').show();
+                    return;
+                } else {
+                    $('.column').hide();
+                }
+                $('.' + id).show();
+            })
+
+            $('#filter').on('focusout', function() {
+                $('.focus-new').css({
+                    'border-color': '#30A2FF #30A2FF #30A2FF #30A2FF',
+                    'border-style': 'solid solid solid solid',
+                    'border-width': '0px 0px 0px 0px',
+                    'border-radius': '8px'
+                });
+                let id = $('#filter').attr('data-val')
+                if (id == 'all') {
+                    $('.column').show();
+                    return;
+                } else {
+                    $('.column').hide();
+                }
+                $('.' + id).show();
             })
             // $('#btnDownload').click(function (e) {
             //     e.preventDefault();
@@ -483,106 +813,667 @@
             let stroke = $('input[name="stroke"]:checked').val();
             let strokeid;
             let svg = document.getElementsByTagName("svg");
-            $.each(svg, function (index, value) {
+            $.each(svg, function(index, value) {
                 let svgnew = document.getElementsByTagName("svg")[index];
+
+                let pathnew = document.getElementsByTagName("path")[index];
                 svgnew.setAttribute('id', index);
                 svgnew.setAttribute('names', $('.header-title')[index].textContent)
-                var path = document.getElementById(''+index+'').querySelectorAll('path, line, polyline, g, circle, polygon, rect, ellipse');
-                let utama, kedua, ketiga, second, first, pertama;
+                var path = document.getElementById('' + index + '').querySelectorAll(
+                    'path, line, polyline, circle, polygon, rect, ellipse');
+                let utama, kedua, ketiga, second, first, pertama, keempat;
+                let newsize = 0.75;
+
                 if (path[2] == undefined && path[1] == undefined) {
-                    pertama = path[0].id = path[0].id+svgnew.id;
+                    pertama = path[0].id = path[0].id + svgnew.id;
                 } else if (path[2] == undefined) {
-                    first = path[1].id = path[1].id+svgnew.id;
-                    second = path[0].id = path[0].id+svgnew.id;
+                    first = path[1].id = path[1].id + svgnew.id;
+                    second = path[0].id = path[0].id + svgnew.id;
                 } else {
-                    utama = path[2].id = path[2].id+svgnew.id;
-                    kedua = path[1].id = path[1].id+svgnew.id;
-                    ketiga = path[0].id = path[0].id+svgnew.id;
+                    utama = path[2].id = path[2].id + svgnew.id;
+                    kedua = path[1].id = path[1].id + svgnew.id;
+                    ketiga = path[0].id = path[0].id + svgnew.id;
                 }
 
-                console.log(first);
+                // console.log($('#a1').attr());
                 svgnew.setAttribute("width", "64")
                 svgnew.setAttribute("height", "64")
-                $('#'+utama).css("stroke", "#FFF")
-                $('#'+first).css("stroke", "#FFF")
-                $('#'+pertama).css("stroke", "#FFF")
-                $('#'+kedua).css("fill", "#FFF")
-                $('#'+second).css("stroke", "#FFF")
-                $('#'+ketiga).css("fill", "#FFF")
-                $('#'+utama).css("stroke-width", '2px')
-                $('#'+kedua).css("stroke-width", '2px')
-                $('#'+ketiga).css("stroke-width", '2px')
-                $('#'+first).css("stroke-width", '2px')
-                $('#'+second).css("stroke-width", '2px')
-                $('#'+pertama).css("stroke-width", '2px')
+                if (path.length == 2) {
+                    if (path[0].hasAttribute('fill') == false) {
+                        path[0].removeAttribute("id")
+                    } else if (path[1].hasAttribute('fill') == false) {
+                        path[1].removeAttribute("id")
+                    }
+                    if (path[0].id == "") {
+                        path[0].setAttribute('fill', 'white')
+                        path[0].setAttribute('stroke', 'white')
+                        path[0].setAttribute('stroke-width', newsize + 'px')
+                        path[1].setAttribute('fill', '#989898')
+                        path[1].setAttribute('stroke', '#989898')
+                        path[1].setAttribute('stroke-width', newsize + 'px')
 
-                $('input[name="size"]').change(function () {
+                    } else if (path[1].id == "") {
+                        path[0].setAttribute('fill', '#989898')
+                        path[0].setAttribute('stroke', '#989898')
+                        path[0].setAttribute('stroke-width', newsize + 'px')
+                        path[1].setAttribute('fill', 'white')
+                        path[1].setAttribute('stroke', 'white')
+                        path[1].setAttribute('stroke-width', newsize + 'px')
+
+                    }
+
+                } else if (path.length == 3) {
+                    if (path[2].tagName == 'circle') {
+                        path[2].removeAttribute("id")
+                    } else if (path[0].hasAttribute('fill') == true && path[1].hasAttribute('fill') ==
+                        true) {
+                        path[1].removeAttribute("id")
+                    } else if (path[1].hasAttribute('fill') == true && path[2].hasAttribute('fill') ==
+                        true) {
+                        path[0].removeAttribute("id")
+                    }
+                    if (path[2].id == "") {
+                        path[2].setAttribute('fill', '#989898')
+                        path[2].setAttribute('stroke', '#989898')
+                        path[2].setAttribute('stroke-width', newsize + 'px')
+
+                        path[0].setAttribute('fill', 'white')
+                        path[0].setAttribute('stroke', 'white')
+                        path[0].setAttribute('stroke-width', newsize + 'px')
+
+                        path[1].setAttribute('fill', '#989898')
+                        path[1].setAttribute('stroke', '#989898')
+                        path[1].setAttribute('stroke-width', newsize + 'px')
+
+                    } else if (path[1].id == "") {
+                        path[2].setAttribute('fill', 'white')
+                        path[2].setAttribute('stroke', 'white')
+                        path[2].setAttribute('stroke-width', newsize + 'px')
+
+                        path[0].setAttribute('fill', '#989898')
+                        path[0].setAttribute('stroke', '#989898')
+                        path[0].setAttribute('stroke-width', newsize + 'px')
+
+                        path[1].setAttribute('fill', '#989898')
+                        path[1].setAttribute('stroke', '#989898')
+                        path[1].setAttribute('stroke-width', newsize + 'px')
+
+                    } else if (path[0].id == "") {
+
+                        path[0].setAttribute('fill', 'white')
+                        path[0].setAttribute('stroke', 'white')
+                        path[0].setAttribute('stroke-width', newsize + 'px')
+
+                        path[1].setAttribute('fill', '#989898')
+                        path[1].setAttribute('stroke', '#989898')
+                        path[1].setAttribute('stroke-width', newsize + 'px')
+                        path[2].setAttribute('fill', '#989898')
+                        path[2].setAttribute('stroke', '#989898')
+                        path[2].setAttribute('stroke-width', newsize + 'px')
+
+
+
+                    } else if (path[0].hasAttribute('id') == true && path[1].hasAttribute('id') == true &&
+                        path[2].hasAttribute('id') == true) {
+                        path[2].setAttribute('fill', '#989898')
+                        path[2].setAttribute('stroke', '#989898')
+                        path[2].setAttribute('stroke-width', newsize + 'px')
+                        path[1].setAttribute('fill', 'white')
+                        path[1].setAttribute('stroke', 'white')
+                        path[1].setAttribute('stroke-width', newsize + 'px')
+                        path[0].setAttribute('fill', '#989898')
+                        path[0].setAttribute('stroke', '#989898')
+                        path[0].setAttribute('stroke-width', newsize + 'px')
+                        console.log(path);
+
+                        // $('#' + utama).css("stroke", "white")
+                        // $('#' + utama).css("fill", "white")
+                        // $('#' + utama).css('stroke-width', newsize + 'px')
+                    }
+
+                } else if (path.length == 4) {
+                    if (path[1].hasAttribute('fill') == true && path[2].hasAttribute('fill') == true &&
+                        path[3].hasAttribute('fill') == true) {
+                        for (let i = 1; i < path.length; i++) {
+                            path[i].setAttribute('fill', '#989898')
+                            path[i].setAttribute('stroke', '#989898')
+                            path[i].setAttribute('stroke-width', newsize + 'px')
+                        }
+                        // path[0].setAttribute('fill', 'white')
+                        // path[0].setAttribute('stroke', 'white')
+                        // path[0].setAttribute('stroke-width', newsize + 'px')
+                        $('#' + utama).css("stroke", "white")
+                        $('#' + utama).css("fill", "white")
+                        $('#' + utama).css('stroke-width', newsize + 'px')
+                    } else if (path[0].hasAttribute('fill') == false && path[1].hasAttribute('fill') ==
+                        false && path[2].hasAttribute('fill') == false) {
+                        for (let i = 0; i < 3; i++) {
+                            path[i].setAttribute('fill', 'white')
+                            path[i].setAttribute('stroke', 'white')
+                            path[i].setAttribute('stroke-width', newsize + 'px')
+                        }
+                        path[0].removeAttribute("id")
+                        path[1].removeAttribute("id")
+                        path[2].removeAttribute("id")
+
+                        path[3].setAttribute('fill', '#989898')
+                        path[3].setAttribute('stroke', '#989898')
+                        path[3].setAttribute('stroke-width', newsize + 'px')
+                        // $('#' + utama).css("stroke", "blue")
+                        // $('#' + utama).css("fill", "blue")
+                        // $('#' + utama).css('stroke-width', newsize + 'px')
+                    }
+
+
+                } else {
+                    for (let i = 1; i < path.length; i++) {
+                        path[i].setAttribute('fill', '#989898')
+                        path[i].setAttribute('stroke', '#989898')
+                        path[i].setAttribute('stroke-width', newsize + 'px')
+                    }
+                    path[0].setAttribute('fill', 'white')
+                    path[0].setAttribute('stroke', 'white')
+                    path[0].setAttribute('stroke-width', newsize + 'px')
+
+                }
+
+
+                $('input[name="size"]').change(function() {
                     sizeid = $(this).val();
                     svgnew.setAttribute("width", sizeid + "px")
                     svgnew.setAttribute("height", sizeid + "px")
                 });
-                $('.btnCopy').click(function () {
-                    var $this = $(this);
+                $('#card' + index).mouseover(function() {
+                    $('#btn' + index).css('opacity', '1')
+                    $('#card' + index).css('position', 'static')
+                    $('#card' + index).css('height', '67.5%')
+                    $('#card' + index).css('left', '0px')
+                    $('#card' + index).css('background', '#30A2FF')
+                    $('#card' + index).css('box-shadow',
+                        "0px 8px 24px 12px rgba(48, 162, 255, 0.3)")
+                    $('#card' + index).css('border-top-left-radius', '0%')
+                    $('#card' + index).css('border-top-right-radius', '0%')
+                    $('#card' + index).css('border-bottom-left-radius', '.25rem')
+                    $('#card' + index).css('border-bottom-right-radius', '.25rem')
+                })
+                $('#card' + index).mouseout(function() {
+                    $('#btn' + index).css('opacity', '0')
+                    $('#card' + index).css('background-color', '#252D3E')
+                    $('#card' + index).css('box-shadow', "none")
+                    $('#card' + index).css('border-radius', '.25rem')
+                })
+                $('#btn' + index).mouseover(function() {
+                    $('#btn' + index).css('opacity', '1')
+                    $('#card' + index).css('position', 'static')
+                    $('#card' + index).css('height', '67.5%')
+                    $('#card' + index).css('left', '0px')
+                    $('#card' + index).css('background', '#30A2FF')
+                    $('#card' + index).css('box-shadow',
+                        "0px 8px 24px 12px rgba(48, 162, 255, 0.3)")
+                    $('#card' + index).css('border-top-left-radius', '0%')
+                    $('#card' + index).css('border-top-right-radius', '0%')
+                    $('#card' + index).css('border-bottom-left-radius', '.25rem')
+                    $('#card' + index).css('border-bottom-right-radius', '.25rem')
+                })
+                $('#btn' + index).mouseout(function() {
+                    $('#btn' + index).css('opacity', '0')
+                    $('#btn' + index).css('opacity', '0')
+                    $('#card' + index).css('background-color', '#252D3E')
+                    $('#card' + index).css('box-shadow', "none")
+                    $('#card' + index).css('border-radius', '.25rem')
+                })
+                $('#btn' + index).click(function() {
+                    $('#btn' + index).css('outline', 'none')
+                    $('#btn' + index).css('outline-width', 'none')
+                    var $this = $('.text-change'+index);
                     var originalText = $this.text();
-                    $this.text('Copied');
+                    $this.text('COPIED!');
+                    console.log(index);
                     navigator.clipboard.writeText(svgnew.outerHTML)
-                    setTimeout(function () {
+                    console.log(svgnew);
+                    setTimeout(function() {
                         $this.text(originalText)
                     }, 2000);
                 })
-                $('#utama').change(function () {
+                $("#l_utama").on('fnLabelChanged', function(e, color) {
+                    if (path.length == 2) {
+                        if (path[0].hasAttribute('fill') == false) {
+                            path[0].removeAttribute("id")
+                        } else if (path[1].hasAttribute('fill') == false) {
+                            path[1].removeAttribute("id")
+                        }
+                        if (path[0].id == "") {
+                            path[0].setAttribute('fill', "" + color + "")
+                            path[0].setAttribute('stroke', "" + color + "")
+                        } else if (path[1].id == "") {
+                            path[1].setAttribute('fill', "" + color + "")
+                            path[1].setAttribute('stroke', "" + color + "")
+                        }
+
+
+                    } else if (path.length == 3) {
+
+                        if (path[2].id == "") {
+                            path[0].setAttribute('fill', "" + color + "")
+                            path[0].setAttribute('stroke', "" + color + "")
+
+                        } else if (path[1].id == "") {
+                            path[2].setAttribute('fill', "" + color + "")
+                            path[2].setAttribute('stroke', "" + color + "")
+
+                        } else if (path[0].id == "") {
+
+                            path[0].setAttribute('fill', "" + color + "")
+                            path[0].setAttribute('stroke', "" + color + "")
+
+                        } else if (path[0].hasAttribute('id') == true && path[1].hasAttribute(
+                                'id') == true && path[2].hasAttribute('id') == true) {
+
+                            path[1].setAttribute('fill', "" + color + "")
+                            path[1].setAttribute('stroke', "" + color + "")
+                        }
+
+
+                    } else if (path.length == 4) {
+                        if (path[0].id == "") {
+                            // console.log('here')
+                            for (let i = 0; i < 3; i++) {
+                                path[i].setAttribute('fill', "" + color + "")
+                                path[i].setAttribute('stroke', "" + color + "")
+                                path[i].setAttribute('stroke-width', newsize + 'px')
+                            }
+                            // path[3].setAttribute('fill', "" + color2 + "")
+                            // path[3].setAttribute('stroke', "" + color2 + "")
+                            // $('#' + utama).css("stroke", "" + color + "")
+                            // $('#' + utama).css("fill", "" + color + "")
+                        } else {
+                            for (let i = 1; i < path.length; i++) {
+                                // path[i].setAttribute('fill', "" + color2 + "")
+                                // path[i].setAttribute('stroke', "" + color2 + "")
+                            }
+                            // path[0].setAttribute('fill', 'white')
+                            // path[0].setAttribute('stroke', 'white')
+                            // path[0].setAttribute('stroke-width', newsize + 'px')
+                            $('#' + utama).css("stroke", "" + color + "")
+                            $('#' + utama).css("fill", "" + color + "")
+                        }
+                    } else {
+                        for (let i = 1; i < path.length; i++) {
+                            // path[i].setAttribute('fill', "" + color2 + "")
+                            // path[i].setAttribute('stroke', "" + color2 + "")
+                        }
+                        path[0].setAttribute('fill', "" + color + "")
+                        path[0].setAttribute('stroke', "" + color + "")
+
+                    }
+                })
+                $("#l_kedua").on('fnLabelChanged2', function(e, color) {
+                    let color2 = $('#l_utama').text()
+                    console.log(color2);
+                    if (path.length == 2) {
+                        if (path[0].id == "") {
+
+                            path[1].setAttribute('fill', "" + color + "")
+                            path[1].setAttribute('stroke', "" + color + "")
+
+                        } else if (path[1].id == "") {
+                            path[0].setAttribute('fill', "" + color + "")
+                            path[0].setAttribute('stroke', "" + color + "")
+
+                        }
+
+                    } else if (path.length == 3) {
+                        if (path[2].id == "") {
+                            path[2].setAttribute('fill', "" + color + "")
+                            path[2].setAttribute('stroke', "" + color + "")
+
+
+
+                            path[1].setAttribute('fill', "" + color + "")
+                            path[1].setAttribute('stroke', "" + color + "")
+
+                        } else if (path[1].id == "") {
+
+
+                            path[0].setAttribute('fill', "" + color + "")
+                            path[0].setAttribute('stroke', "" + color + "")
+
+                            path[1].setAttribute('fill', "" + color + "")
+                            path[1].setAttribute('stroke', "" + color + "")
+
+                        } else if (path[0].id == "") {
+
+                            path[1].setAttribute('fill', "" + color + "")
+                            path[1].setAttribute('stroke', "" + color + "")
+                            path[2].setAttribute('fill', "" + color + "")
+                            path[2].setAttribute('stroke', "" + color + "")
+
+
+
+                        } else if (path[0].hasAttribute('id') == true && path[1].hasAttribute(
+                                'id') == true && path[2].hasAttribute('id') == true) {
+                            path[2].setAttribute('fill', "" + color + "")
+                            path[2].setAttribute('stroke', "" + color + "")
+
+                            path[0].setAttribute('fill', "" + color + "")
+                            path[0].setAttribute('stroke', "" + color + "")
+
+                        }
+                    } else if (path.length == 4) {
+                        if (path[0].id == "") {
+                            // for (let i = 0; i < 3; i++) {
+                            //     path[i].setAttribute('fill', "" + color2 + "")
+                            //     path[i].setAttribute('stroke', "" + color2 + "")
+                            //     path[i].setAttribute('stroke-width', newsize + 'px')
+                            // }
+                            path[3].setAttribute('fill', "" + color + "")
+                            path[3].setAttribute('stroke', "" + color + "")
+                            // $('#' + utama).css("stroke", "" + color + "")
+                            // $('#' + utama).css("fill", "" + color + "")
+                        } else {
+                            for (let i = 1; i < path.length; i++) {
+                                path[i].setAttribute('fill', "" + color + "")
+                                path[i].setAttribute('stroke', "" + color + "")
+                            }
+                            // path[0].setAttribute('fill', 'white')
+                            // path[0].setAttribute('stroke', 'white')
+                            // path[0].setAttribute('stroke-width', newsize + 'px')
+                            // $('#' + utama).css("stroke", "" + color2 + "")
+                            // $('#' + utama).css("fill", "" + color2 + "")
+                        }
+
+
+                    } else {
+                        for (let i = 1; i < path.length; i++) {
+                            path[i].setAttribute('fill', "" + color + "")
+                            path[i].setAttribute('stroke', "" + color + "")
+                        }
+                        // path[0].setAttribute('fill', "" + color2 + "")
+                        // path[0].setAttribute('stroke', "" + color2 + "")
+
+                    }
+                })
+                $('#utama').change(function() {
                     let color = $(this).val()
-                    $('#'+utama).css("stroke", ""+color+"")
-                    $('#'+first).css("stroke", ""+color+"")
-                    $('#'+pertama).css("stroke", ""+color+"")
+                    let color2 = $('#kedua').val()
+                    // path[0].setAttribute('fill', "" + color + "")
+                    // path[0].setAttribute('stroke', "" + color + "")
+
+
                     $('#l_utama').text(color)
                     $(this).css('background-color', color)
                     $(this).css("color", color)
-                    console.log(color);
+                    // console.log(color);
                 })
-                $('#kedua').change(function () {
+                $('#kedua').change(function() {
                     let color = $(this).val()
-                    $('#'+kedua).css("fill", ""+color+"")
-                    $('#'+second).css("stroke", ""+color+"")
+                    let color2 = $('#utama').val()
+
+
                     $('#l_kedua').text(color)
                     $(this).css('background-color', color)
                     $(this).css("color", color)
-                    console.log(color);
+                    // console.log(color);
                 })
-                $('#ketiga').change(function () {
-                    let color = $(this).val()
-                    $('#'+ketiga).css("fill", ""+color+"")
-                    $('#l_ketiga').text(color)
-                    $(this).css('background-color', color)
-                    $(this).css("color", color)
-                    console.log(color);
-                })
-                $('input[name="stroke"]').change(function () {
-                    sizeid = $(this).val();
-                    console.log(sizeid);
-                    $('#'+utama).css("stroke-width", ''+sizeid+'')
-                    $('#'+kedua).css("stroke-width", ''+sizeid+'')
-                    $('#'+ketiga).css("stroke-width", ''+sizeid+'')
-                    $('#'+first).css("stroke-width", ''+sizeid+'')
-                    $('#'+second).css("stroke-width", ''+sizeid+'')
-                    $('#'+pertama).css("stroke-width", ''+sizeid+'')
+                // $('#ketiga').change(function() {
+                //     let color = $(this).val()
+                //     $('#' + ketiga).css("fill", "" + color + "")
+                //     $('#l_ketiga').text(color)
+                //     $(this).css('background-color', color)
+                //     $(this).css("color", color)
+                //     console.log(color);
+                // })
+                $('input[name="stroke"]').change(function() {
+                    let newsize, sizeid;
+                    newsize = $(this).val();
+                    //0.563 -> 1.5 0.186 -> 0.5 0.375 -> 1 0.75 -> 2 0.936 -> 2.5
+                    if (newsize == 0.5) {
+                        console.log(newsize);
+                        sizeid = 0.186 + 'px';
+
+                        if (path.length == 2) {
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+                            path[1].setAttribute('stroke-width', '' + sizeid + '')
+                        } else if (path.length == 3) {
+                            for (let i = 0; i < path.length; i++) {
+                                if (path[i].tagName == 'circle') {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[0].hasAttribute('fill') == true && path[1]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[1].hasAttribute('fill') == true && path[2]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    $('#' + utama).css('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[0].hasAttribute('fill') == true && path[2]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    $('#' + utama).css('stroke-width', '' + sizeid + '')
+                                }
+
+                            }
+                        } else if (path.length == 4) {
+                            for (let i = 1; i < path.length; i++) {
+                                path[i].setAttribute('stroke-width', '' + sizeid + '')
+                            }
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+
+                        } else {
+                            for (let i = 1; i < path.length; i++) {
+                                path[i].setAttribute('stroke-width', '' + sizeid + '')
+                            }
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+                        }
+
+                    } else if (newsize == 1) {
+                        console.log(newsize);
+                        sizeid = 0.375 + 'px';
+                        if (path.length == 2) {
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+                            path[1].setAttribute('stroke-width', '' + sizeid + '')
+                        } else if (path.length == 3) {
+                            for (let i = 0; i < path.length; i++) {
+                                if (path[i].tagName == 'circle') {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[0].hasAttribute('fill') == true && path[1]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[1].hasAttribute('fill') == true && path[2]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    $('#' + utama).css('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[0].hasAttribute('fill') == true && path[2]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    $('#' + utama).css('stroke-width', '' + sizeid + '')
+                                }
+
+                            }
+                        } else if (path.length == 4) {
+                            for (let i = 1; i < path.length; i++) {
+                                path[i].setAttribute('stroke-width', '' + sizeid + '')
+                            }
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+
+                        } else {
+                            for (let i = 1; i < path.length; i++) {
+                                path[i].setAttribute('stroke-width', '' + sizeid + '')
+                            }
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+                        }
+                    } else if (newsize == 1.5) {
+                        console.log(newsize);
+                        sizeid = 0.563 + 'px';
+                        if (path.length == 2) {
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+                            path[1].setAttribute('stroke-width', '' + sizeid + '')
+                        } else if (path.length == 3) {
+                            for (let i = 0; i < path.length; i++) {
+                                if (path[i].tagName == 'circle') {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[0].hasAttribute('fill') == true && path[1]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[1].hasAttribute('fill') == true && path[2]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    $('#' + utama).css('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[0].hasAttribute('fill') == true && path[2]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    $('#' + utama).css('stroke-width', '' + sizeid + '')
+                                }
+
+                            }
+                        } else if (path.length == 4) {
+                            for (let i = 1; i < path.length; i++) {
+                                path[i].setAttribute('stroke-width', '' + sizeid + '')
+                            }
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+
+                        } else {
+                            for (let i = 1; i < path.length; i++) {
+                                path[i].setAttribute('stroke-width', '' + sizeid + '')
+                            }
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+                        }
+                    } else if (newsize == 2) {
+                        console.log(newsize);
+                        sizeid = 0.75 + 'px';
+                        if (path.length == 2) {
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+                            path[1].setAttribute('stroke-width', '' + sizeid + '')
+                        } else if (path.length == 3) {
+                            for (let i = 0; i < path.length; i++) {
+                                if (path[i].tagName == 'circle') {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[0].hasAttribute('fill') == true && path[1]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[1].hasAttribute('fill') == true && path[2]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    $('#' + utama).css('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[0].hasAttribute('fill') == true && path[2]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    $('#' + utama).css('stroke-width', '' + sizeid + '')
+                                }
+
+                            }
+                        } else if (path.length == 4) {
+                            for (let i = 1; i < path.length; i++) {
+                                path[i].setAttribute('stroke-width', '' + sizeid + '')
+                            }
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+
+                        } else {
+                            for (let i = 1; i < path.length; i++) {
+                                path[i].setAttribute('stroke-width', '' + sizeid + '')
+                            }
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+                        }
+                    } else if (newsize == 2.5) {
+                        console.log(newsize);
+                        sizeid = 0.936 + 'px';
+                        if (path.length == 2) {
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+                            path[1].setAttribute('stroke-width', '' + sizeid + '')
+                        } else if (path.length == 3) {
+                            for (let i = 0; i < path.length; i++) {
+                                if (path[i].tagName == 'circle') {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[0].hasAttribute('fill') == true && path[1]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[1].hasAttribute('fill') == true && path[2]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    $('#' + utama).css('stroke-width', '' + sizeid + '')
+                                    path[1].setAttribute('stroke-width', '' + sizeid + '')
+                                } else if (path[0].hasAttribute('fill') == true && path[2]
+                                    .hasAttribute('fill') ==
+                                    true) {
+                                    path[2].setAttribute('stroke-width', '' + sizeid + '')
+                                    path[0].setAttribute('stroke-width', '' + sizeid + '')
+                                    $('#' + utama).css('stroke-width', '' + sizeid + '')
+                                }
+
+                            }
+                        } else if (path.length == 4) {
+                            for (let i = 1; i < path.length; i++) {
+                                path[i].setAttribute('stroke-width', '' + sizeid + '')
+                            }
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+
+                        } else {
+                            for (let i = 1; i < path.length; i++) {
+                                path[i].setAttribute('stroke-width', '' + sizeid + '')
+                            }
+                            path[0].setAttribute('stroke-width', '' + sizeid + '')
+                        }
+                    }
                 });
             });
-            $('#btnDownload').click(function (e) {
+            $('#btnDownload').click(function(e) {
                 e.preventDefault();
                 var zip = new JSZip();
                 // window.location = window.location.origin+'/api/image/download3/'
-                [].forEach.call($('.card > svg'), function (svg) {
+                [].forEach.call($('.card > svg'), function(svg) {
                     var fileName = $(svg).attr('names') + '.svg';
                     addSVGToZip(zip, $(svg), fileName);
                 });
-                zip.generateAsync({type:"blob"})
-                    .then(function (content) {
+                zip.generateAsync({
+                        type: "blob"
+                    })
+                    .then(function(content) {
                         // see FileSaver.js
                         saveAs(content, "IconMultiColor.zip");
-                    }
-                );
+                    });
             })
+
             function addSVGToZip(zip, element, fileName) {
                 var svg = $(element);
                 var svgString;
@@ -595,17 +1486,69 @@
                 var img = zip.folder("images");
                 img.file(fileName, svgString);
             }
-            $('#filter').on('keyup', function(){
+            $('#filter').on('keyup focus focusout', function() {
                 var keyword = $('#filter').val().toLowerCase();
                 console.log(keyword);
-                $('.column').filter(function() {
+                let id = $('#filter').attr('data-val')
+                if (id == 'all') {
+                    $('.column').show();
+                    $('.column').filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(keyword) > -1)
-                })
+                    })
+                    return;
+                } else {
+                    $('.column').hide();
+                }
+                $('.' + id).show();
+                $('.' + id).filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(keyword) > -1)
+                });
             })
-            $('#filterr').change(function(){
-                if($(this).val()=="all"){$('.column').show(); return;}else{$('.column').hide();}
-                $('.' + $(this).val()).show();
-            });
+            let panjang = $('.dropdown-menu').attr('data-count');
+                $('.dropdown-toggle').click(function() {
+                    if ( $('#img-change').attr('src') == "{{asset('image/arrowdown.png')}}" ) {
+                        $('.dropdown-toggle').css('color','grey');
+                        $('.form-controll').css('box-shadow','0px 0px 0px 4px rgba(48, 162, 255, 0.2)');
+                        $('.form-controll').css('border','1px solid rgba(48, 162, 255, 0.7)');
+                        $('#img-change').attr('src',"{{asset('image/arrowup.png')}}")
+                    } else {
+                        $('.dropdown-toggle').css('color','white');
+                        $('.form-controll').css('box-shadow','none');
+                        $('.form-controll').css('border','none');
+                        $('#img-change').attr('src',"{{asset('image/arrowdown.png')}}")
+                    }
+
+                })
+                for (let i = 0; i <= panjang; i++) {
+                    $('#filterr' + i).mouseover(function() {
+                    $('#badge' + i).css('background', '#30A2FF')
+                    $('#badge' + i).css('color', '#FFF')
+                    })
+                    $('#filterr' + i).mouseout(function() {
+                        $('#badge' + i).css('background', 'rgba(48, 162, 255, 0.2)')
+                        $('#badge' + i).css('color', '#30A2FF')
+                    })
+                    $('#filterr'+i).click(function() {
+                        // style
+                        $('.dropdown-toggle').css('color','white');
+                        $('.form-controll').css('box-shadow','none');
+                        $('.form-controll').css('border','none');
+                        //style
+                        $('#img-change').attr('src',"{{asset('image/arrowdown.png')}}")
+                        let nama = $('#flnama' + i).text()
+                        $('.change').text(nama)
+                        let id = $('#filterr'+i).attr('data-val');
+                        $('#filter').attr('data-val', id);
+                        // $('.dropdown-toggle').text($('#filterr'+i).text());
+                        if (id=='all') {
+                            $('.column').show();
+                            return;
+                        }else{
+                            $('.column').hide();
+                        }
+                        $('.' + id).show();
+                    })
+                }
         })
     </script>
     @stack('js')
